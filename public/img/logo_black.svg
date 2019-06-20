@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-128.000000, -104.000000)">
+            <g id="Group-2" transform="translate(128.000000, 104.000000)">
+                <path d="M2,0 L68,0 C69.1045695,-2.02906125e-16 70,0.8954305 70,2 L70,68 C70,69.1045695 69.1045695,70 68,70 L2,70 C0.8954305,70 1.3527075e-16,69.1045695 0,68 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z" id="Rectangle" fill="#1C1C1C" transform="translate(35.000000, 35.000000) rotate(270.000000) translate(-35.000000, -35.000000) "></path>
+                <text id="HM" font-family="OpenSans-SemiBold, Open Sans" font-size="28" font-weight="500" letter-spacing="2.53846062" fill="#FEFCFB">
+                    <tspan x="9.52794563" y="46">HM</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,26 @@
+{
+  "name": "myportfolio",
+  "version": "1.0.0",
+  "description": "Hans Martin Hankens personal portfolio and blogging website.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node ./scripts/seed"
+  },
+  "author": "Hans Martin Hanken",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mysql": "^2.17.1",
+    "node-fetch": "^2.6.0",
+    "nodemailer": "^6.2.1",
+    "unsplash-js": "^5.0.0"
+  }
+}

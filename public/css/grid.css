@@ -1,0 +1,4 @@
+.container {
+  padding-left: var(--site-side-padding);
+  padding-right: var(--site-side-padding);
+}
