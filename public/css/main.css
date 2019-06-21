@@ -21,13 +21,8 @@ body {
 }
 
 .contact-icons {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
   display: flex;
   justify-content: flex-end;
-  padding: var(--navbar-padding)
 }
 
 .contact-icons .icon {
@@ -128,65 +123,107 @@ padding: var(--navbar-padding);
 /* ============================== WORK SECTION ================================================= */
 
 #work {
+  height: 100vh;
 }
 
-/* .projects-section {
-  padding-left: 70px;
-  padding-right: 70px;
-} */
+.projects-section {
+  width: 63%;
+  margin: 0 auto;
+}
 
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  grid-gap: 20px;
 }
 
-.project-link {
+.project-img {
+  vertical-align: top;
+  transition: 1s;
+}
+
+.project-img-container {
+  display: flex;
+  position: relative;
   cursor: pointer;
 }
 
-.project-grid img {
+.project-img-container::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 400px;
+  height: 100%;
+  transition: .6s;
 }
 
-.project-image .yamovie {
-  background-image: url('../img/yamovie.jpg')
+.project-img-container:hover::after {
+  background: rgba(255, 255, 255, 0.486);
 }
 
-.project-image .nsupa {
-  background-image: url('../img/nsupa.jpg')
+.project-img-container:hover .project-img-text {
+  opacity: 1;
 }
 
-.project-image .railsstack {
-  background-image: url('../img/railsstack.jpg')
+.project-img-text {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 100;
+  transition: .6s;
 }
 
-.project-image .muli {
-  background-image: url('../img/muli.jpg')
+.project-title {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  margin-bottom: 0;
+  font-weight: 300;
+  text-align: center;
 }
 
 /* ============================== BIO SECTION ================================================= */
 
 .bio-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
+  width: 63%;
+  margin: 0 auto;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-content: center;
-  columns: 2;
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  grid-gap: 30px;
+}
+
+.bio-text-heading {
+  font-size: 21px;
+  margin: 0;
+}
+
+.bio-text-p-heading {
+  color: var(--body-text-color);
 }
 
 .bio-text p {
-  line-height: 1.6;
-  letter-spacing: 2px;
+  color: var(--body-text-color);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  /* letter-spacing: 1px; */
 }
 
 /* ============================== CONTACT SECTION ================================================= */
 
 .contact-section {
-  height: 700px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,21 +233,42 @@ padding: var(--navbar-padding);
 .contact-form {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 35%;
 }
 
 .contact-form textarea, .contact-form input {
   border: 1px solid var(--black);
-  padding: 10px;
+  font-family: var(--body-text-font);
+  font-size: var(--body-text-size);
+  outline: none;
+  padding: 12px;
   margin-bottom: 15px;
-  border-radius: 2px;
+  border-radius: var(--box-border-radius);
 }
 
 .contact-form button {
+  cursor: pointer;
+  font-family: var(--body-text-font);
   width: 25%;
   padding: 10px;
+  font-size: 15px;
   align-self: flex-end;
   background: none;
   box-shadow: 0;
   border: 1px solid var(--black);
+  border-radius: var(--box-border-radius);
+}
+
+/* ============================== FOOTER ================================================= */
+
+.footer {
+  padding: var(--navbar-padding);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-family: var(--body-text-font);
+  font-size: var(--body-text-size);
 }

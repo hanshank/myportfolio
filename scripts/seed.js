@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const mysql = require('mysql');
 const faker = require('faker');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 const db = mysql.createConnection({

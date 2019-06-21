@@ -1,6 +1,10 @@
 :root {
   --black: #1C1C1C;
-  --site-side-padding: 270px; 
-  --navbar-padding: 25px 50px;
+  --site-side-padding: 75px; 
+  --navbar-padding: 25px 75px;
   --navbar-item-spacing: 30px;
+  --box-border-radius: 3px;
+  --body-text-font: 'Open Sans', sans-serif;
+  --body-text-color: #575757;
+  --body-text-size: 15px;
 }

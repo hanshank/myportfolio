@@ -28,7 +28,7 @@
         <a href="/blog">BLOG</a>
       </div>
     </nav>
-    <div class="intro-section container">
+    <div class="intro-section">
 
       <div class="intro-message">
         <h1 class="intro-headline">Hans Martin Hanken</h1>
@@ -39,42 +39,40 @@
     </div>
   </header>
 
-  <section id="work" class="container">
+  <section id="work" class="">
     <div class="projects-section">
       <h2 class="section-headline">WORK.</h2>
       <div class="projects-grid">
         <div>
-          <img src="./img/yamovie.jpg" class="img-fluid" />
-          <h3 class="project-title">YAMOVIE</h3>
-          <a href="#"><span>SEE LIVE</span></a>
-          <span>|</span>
-          <span>READ MORE</span>
-        </div>
-
-
-
-        <div>
-          <img src="./img/nsupa.png" class="img-fluid" />
-          <h3 class="project-title">&SÜPA</h3>
-          <a href="#"><span>SEE LIVE</span></a>
-          <span>|</span>
-          <span>READ MORE</span>
+          <div class="project-img-container">
+            <img src="./img/yamovie.jpg" class="img-fluid project-img" />
+            <span class="project-img-text">READ MORE</span>
+          </div>
+          <h3 class="project-title">YAMOVIE | FULL STACK NODE/REACT + DESIGN</h3>
         </div>
 
         <div>
-          <img src="./img/muli.jpg" class="img-fluid" />
-          <h3 class="project-title">MULI CLOTHING</h3>
-          <a href="#"><span>SEE LIVE</span></a>
-          <span>|</span>
-          <span>READ MORE</span>
+          <div class="project-img-container">
+            <img src="./img/nsupa.png" class="img-fluid project-img" />
+            <span class="project-img-text">READ MORE</span>
+          </div>
+          <h3 class="project-title">&SÜPA | FULL STACK NODE/GATSBY + DESIGN</h3>
         </div>
 
         <div>
-          <img src="./img/railsstack.jpg" class="img-fluid" />
-          <h3 class="project-title">RAILS STACK</h3>
-          <a href="#"><span>SEE LIVE</span></a>
-          <span>|</span>
-          <span>READ MORE</span>
+          <div class="project-img-container">
+            <img src="./img/muli.jpg" class="img-fluid project-img" />
+            <span class="project-img-text">READ MORE</span>
+          </div>
+          <h3 class="project-title">MULI CLOTHING | DESIGN + CUSTOMIZATION</h3>
+        </div>
+
+        <div>
+          <div class="project-img-container">
+            <img src="./img/railsstack.jpg" class="img-fluid project-img" />
+            <span class="project-img-text">READ MORE</span>
+          </div>
+          <h3 class="project-title">RAILS STACK | FULL STACK RAILS/REACT + DESIGN</h3>
         </div>
 
 
@@ -83,44 +81,52 @@
 
   </section>
 
-  <section id="bio" class="bio-section container">
-    <article class="bio-text">
-      <h2 class="section-headline">BIO.</h2>
-      <p>Hi. My name is Hans Martin Hanken. I am working as a Software Engineer in sunny Los Angeles, California. I also
-        do freelance web development and design. I am genuinly passionate about my work and love making fast, attractive
-        and effective modern web applications.
-      </p>
-      <p>
-        I started out my
-        coding journey in programming languages such as Ruby, using the well known Ruby on Rails framework. Today I
-        do most of my
-        work in Java Script based stacks, but I believe that solid programming fundamentals can be transferred to most
-        languages,
-        frameworks and tools. If I am
-        not spending my days
-        coding and developing, you’ll often find my outside, with our dog Mishca. </p>
+  <section id="bio" class="bio-section">
+    <h2 class="section-headline">BIO.</h2>
+    <div class="bio-grid">
+      <img src="./img/mischa.jpg" class="img-fluid" />
+      <article class="bio-text">
+        <h3 class="bio-text-heading">DEVELOPING FOR THE USER</h3>
+        <p>Hi. My name is Hans Martin Hanken. I am working as a Software Engineer in sunny Los Angeles, California. I
+          also
+          do freelance web development and design. I am genuinly passionate about my work and love making fast,
+          attractive
+          and effective modern web applications.
+        </p>
+        <h4 class="bio-text-p-heading">Background</h4>
+        <p>
+          I started my
+          coding journey in programming languages such as Ruby, using the well known Ruby on Rails framework. Today I
+          do most of my
+          work in Java Script based stacks, but I believe that solid programming fundamentals can be transferred to most
+          languages,
+          frameworks and tools. If I am
+          not spending my days
+          coding and developing, you’ll often find my outside, with our dog Mishca. </p>
 
-      </div>
-    </article>
-
-
-    <img src="./img/mischa.jpg" class="img-fluid" />
+      </article>
+    </div>
   </section>
 
-  <section id="contact" class="contact-section container">
+  <section id="contact" class="contact-section">
     <form class="contact-form" id="contact-form">
       <h2 class="section-headline">CONTACT.</h2>
       <input name="email" placeholder="email..." />
-      <textarea name="message" id="" cols="30" rows="15" placeholder="message..."></textarea>
+      <textarea name="message" id="" cols="30" rows="12" placeholder="message..."></textarea>
       <button type="submit">SEND</button>
     </form>
 
   </section>
 
-  <div class="contact-icons">
-    <a href="https://linkedin.com/in/hans-martin-hanken/"><i class="icon"><img src="img/linkedin-in.svg" /></i></a>
-    <a href="mailto:hansmhank@gmail.com"><i class="icon"><img src="img/envelope.svg" /></i></a>
-  </div>
+  <footer class="footer">
+    <span>© 2019 Hans Martin Hanken.</span>
+    <div class="contact-icons">
+      <a href="https://linkedin.com/in/hans-martin-hanken/"><i class="icon"><img src="img/linkedin-in.svg" /></i></a>
+      <a href="mailto:hansmhank@gmail.com"><i class="icon"><img src="img/envelope.svg" /></i></a>
+    </div>
+  </footer>
+
+
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./components/contact.js"></script>
