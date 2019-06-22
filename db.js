@@ -8,4 +8,4 @@ const db = mysql.createConnection({
   database: process.env.DATABASE,
 });
 
-// Testing
+// Testings
