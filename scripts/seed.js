@@ -1,4 +1,4 @@
-// seed file yeahs
+// seed file yeahssss
 const fetch = require('node-fetch');
 const mysql = require('mysql');
 const faker = require('faker');
