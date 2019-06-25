@@ -1,4 +1,3 @@
-// seed file yeahssssasfassassasdssssssssss
 const axios = require('axios');
 const faker = require('faker');
 const bcrypt = require('bcryptjs');
@@ -68,20 +67,23 @@ const seedData = () => {
       );
 
       // Image query
-      axios.get(imgApi).then(res => {
-        db.query(
-          'INSERT INTO images SET ?',
-          {
-            url: res.data.urls.small,
-            post_id: i + 1,
-            created_at: faker.date.past(),
-          },
-          function(err, rows) {
-            if (!err) console.log('The solution is: ', rows);
-            else console.log(err);
-          }
-        );
-      });
+      axios
+        .get(imgApi)
+        .then(res => {
+          db.query(
+            'INSERT INTO images SET ?',
+            {
+              url: res.data.urls.small,
+              post_id: i + 1,
+              created_at: faker.date.past(),
+            },
+            function(err, rows) {
+              if (!err) console.log('The solution is: ', rows);
+              else console.log(err);
+            }
+          );
+        })
+        .catch(error => console.log(error));
     }
   };
 

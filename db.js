@@ -6,11 +6,10 @@ const connection = mysql.createConnection({
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
-  port: process.env.DATABASE_PORT,
 });
 
-connection.connect(function(err) {
-  if (err) throw err;
-});
+// connection.connect(function(err) {
+//   if (err) throw err;
+// });
 
 module.exports = connection;
