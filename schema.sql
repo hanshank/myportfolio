@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS @DATABASE;
+CREATE DATABASE IF NOT EXISTS myportfolio_db;
 
-use portfolio_db;
+use myportfolio_db;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
