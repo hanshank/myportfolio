@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS portfolio_db;
+CREATE DATABASE IF NOT EXISTS @DATABASE;
 
 use portfolio_db;
 
