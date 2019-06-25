@@ -1,12 +1,5 @@
 const mysql = require('mysql');
-require('dotenv').config();
-
-const db = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-});
+const db = require('../db');
 
 const create = (req, res) => {
   const post = {
@@ -21,12 +14,12 @@ const create = (req, res) => {
   });
 };
 
-const getAllPosts = (req, res) => {
+const getAllPosts = (req, res, next) => {
   const q =
     'SELECT p.title, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts p INNER JOIN images i on p.id = i.post_id';
   db.query(q, (err, results) => {
-    if (err) throw err;
-    res.json(results);
+    req.posts = results;
+    next();
   });
 };
 

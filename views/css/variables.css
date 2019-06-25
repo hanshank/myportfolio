@@ -1,7 +1,7 @@
 :root {
   --black: #1C1C1C;
   --site-side-padding: 75px; 
-  --navbar-padding: 25px 75px;
+  --navbar-padding: 25px 0;
   --navbar-item-spacing: 30px;
   --box-border-radius: 3px;
   --body-text-font: 'Open Sans', sans-serif;

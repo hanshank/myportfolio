@@ -1,0 +1,61 @@
+extends layout
+
+block header content
+  .intro-section
+    .intro-message
+      h1.intro-headline Hans Martin Hanken
+      h3.intro-second-headline Full Stack Web Developer & Designer
+      h5.intro-third-headline Creating a home on the web for your ideas
+block page content
+  section#work
+    .projects-section
+      h2.section-headline WORK.
+      .projects-grid
+        div
+          .project-img-container
+            img.img-fluid.project-img(src='./img/yamovie.jpg')
+            span.project-img-text READ MORE
+          h3.project-title YAMOVIE | FULL STACK NODE/REACT + DESIGN
+        div
+          .project-img-container
+            img.img-fluid.project-img(src='./img/nsupa.png')
+            span.project-img-text READ MORE
+          h3.project-title &SÜPA | FULL STACK NODE/GATSBY + DESIGN
+        div
+          .project-img-container
+            img.img-fluid.project-img(src='./img/muli.jpg')
+            span.project-img-text READ MORE
+          h3.project-title MULI CLOTHING | DESIGN + CUSTOMIZATION
+        div
+          .project-img-container
+            img.img-fluid.project-img(src='./img/railsstack.jpg')
+            span.project-img-text READ MORE
+          h3.project-title RAILS STACK | FULL STACK RAILS/REACT + DESIGN
+  section#bio.bio-section
+    h2.section-headline BIO.
+    .bio-grid
+      img.img-fluid(src='./img/mischa.jpg')
+      article.bio-text
+        h3.bio-text-heading DEVELOPING FOR THE USER
+        p
+          | Hi. My name is Hans Martin Hanken. I am working as a Software Engineer in sunny Los Angeles, California. I
+          | also
+          | do freelance web development and design. I am genuinly passionate about my work and love making fast,
+          | attractive
+          | and effective modern web applications.
+        h4.bio-text-p-heading Background
+        p
+          | I started my
+          | coding journey in programming languages such as Ruby, using the well known Ruby on Rails framework. Today I
+          | do most of my
+          | work in Java Script based stacks, but I believe that solid programming fundamentals can be transferred to most
+          | languages,
+          | frameworks and tools. If I am
+          | not spending my days
+          | coding and developing, you’ll often find my outside, with our dog Mishca.
+  section#contact.contact-section
+    form#contact-form.contact-form
+      h2.section-headline CONTACT.
+      input(name='email', placeholder='email...')
+      textarea(name='message', id='', cols='30', rows='12', placeholder='message...')
+      button(type='submit') SEND

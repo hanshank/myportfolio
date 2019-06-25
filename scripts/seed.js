@@ -1,23 +1,19 @@
 // seed file yeahssssasfassassasdssssssssss
 const fetch = require('node-fetch');
+const axios = require('axios');
 const mysql = require('mysql');
 const faker = require('faker');
 const bcrypt = require('bcryptjs');
-require('dotenv').config();
+const db = require('../db');
 
-const db = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.USER,
-  database: process.env.DATABASE,
-  password: process.env.PASSWORD,
-});
-
-const numOfPostsAndImages = 50;
-const numberOfUserComments = 300;
-const numberOfAdminComments = 40;
+const numOfPostsAndImages = 20;
+const numberOfUserComments = 200;
+const numberOfAdminComments = 30;
 
 const numberOfAdmins = 1;
 const numberOfUsers = 20;
+
+const imgApi = `${process.env.IMG_API}/?client_id=${process.env.IMG_API_KEY}`;
 
 const seedData = () => {
   const randomInt = max => Math.floor(Math.random() * Math.floor(max) + 1);
@@ -74,18 +70,20 @@ const seedData = () => {
       );
 
       // Image query
-      db.query(
-        'INSERT INTO images SET ?',
-        {
-          url: 'https://source.unsplash.com/random',
-          post_id: i + 1,
-          created_at: faker.date.past(),
-        },
-        function(err, rows) {
-          if (!err) console.log('The solution is: ', rows);
-          else console.log(err);
-        }
-      );
+      axios.get(imgApi).then(res => {
+        db.query(
+          'INSERT INTO images SET ?',
+          {
+            url: res.data.urls.small,
+            post_id: i + 1,
+            created_at: faker.date.past(),
+          },
+          function(err, rows) {
+            if (!err) console.log('The solution is: ', rows);
+            else console.log(err);
+          }
+        );
+      });
     }
   };
 
@@ -124,7 +122,6 @@ const seedData = () => {
   };
 
   // Open up a new mysql db connection
-  db.connect();
 
   // Running seed functions. You can edit the params to include desired amount of inserts
   createAdmins(numberOfAdmins);
@@ -134,7 +131,6 @@ const seedData = () => {
   createAdminComments(numberOfAdminComments);
 
   // Closes current mysql db connection
-  db.end();
 };
 
 seedData();
