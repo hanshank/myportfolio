@@ -4,7 +4,7 @@ const pug = require('pug');
 const routes = require('./routes/index');
 require('dotenv').config();
 
-const port = process.env.PORT;
+const port = process.env.SERVER_PORT;
 
 const app = express();
 
