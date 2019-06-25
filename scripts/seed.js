@@ -1,17 +1,15 @@
 // seed file yeahssssasfassassasdssssssssss
-const fetch = require('node-fetch');
 const axios = require('axios');
-const mysql = require('mysql');
 const faker = require('faker');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
 
-const numOfPostsAndImages = 20;
-const numberOfUserComments = 200;
-const numberOfAdminComments = 30;
+const numOfPostsAndImages = 1;
+const numberOfUserComments = 100;
+const numberOfAdminComments = 10;
 
 const numberOfAdmins = 1;
-const numberOfUsers = 20;
+const numberOfUsers = 10;
 
 const imgApi = `${process.env.IMG_API}/?client_id=${process.env.IMG_API_KEY}`;
 
