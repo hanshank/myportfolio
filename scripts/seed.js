@@ -3,7 +3,7 @@ const faker = require('faker');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
 
-const numOfPostsAndImages = 1;
+const numOfPostsAndImages = 2;
 const numberOfUserComments = 100;
 const numberOfAdminComments = 10;
 
@@ -52,19 +52,19 @@ const seedData = () => {
   const createPostsAndImages = amount => {
     for (let i = 0; i < amount; i++) {
       // Post query
-      db.query(
-        'INSERT INTO posts SET ?',
-        {
-          title: faker.lorem.words(),
-          content: `<p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p>`,
-          admin_id: 1,
-          created_at: faker.date.past(),
-        },
-        function(err, rows) {
-          if (!err) console.log('The solution is: ', rows);
-          else console.log(err);
-        }
-      );
+      // db.query(
+      //   'INSERT INTO posts SET ?',
+      //   {
+      //     title: faker.lorem.words(),
+      //     content: `<p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p>`,
+      //     admin_id: 1,
+      //     created_at: faker.date.past(),
+      //   },
+      //   function(err, rows) {
+      //     if (!err) console.log('The solution is: ', rows);
+      //     else console.log(err);
+      //   }
+      // );
 
       // Image query
       axios
@@ -124,11 +124,11 @@ const seedData = () => {
   // Open up a new mysql db connection
 
   // Running seed functions. You can edit the params to include desired amount of inserts
-  createAdmins(numberOfAdmins);
-  createUsers(numberOfUsers);
+  // createAdmins(numberOfAdmins);
+  // createUsers(numberOfUsers);
   createPostsAndImages(numOfPostsAndImages);
-  createUserComments(numberOfUserComments);
-  createAdminComments(numberOfAdminComments);
+  // createUserComments(numberOfUserComments);
+  // createAdminComments(numberOfAdminComments);
 
   // Closes current mysql db connection
 };
