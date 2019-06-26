@@ -3,7 +3,7 @@ require('dotenv').config();
 
 console.log({
   socketPath: process.env.DATABASE_SOCKET,
-  user: process.env.USER,
+  user: process.env.DATABASE_USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 });
