@@ -13,3 +13,7 @@ connection.connect(function(err) {
 });
 
 module.exports = connection;
+
+
+mysql_config_editor set --login-path=hanshank  --host=localhost \
+   --port=3306 --socket=/var/run/mysqld/mysqld.sock --user=hanshank --password=Dexter1945!321!
