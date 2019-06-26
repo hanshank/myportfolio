@@ -12,7 +12,6 @@ const numberOfAdmins = 1;
 const numberOfUsers = process.env.SEED_AMOUNT * 2;
 
 const imgApi = `${process.env.IMG_API}/?client_id=${process.env.IMG_API_KEY}`;
-console.log(imgApi);
 
 const seedData = () => {
   const randomInt = max => Math.floor(Math.random() * Math.floor(max) + 1);
@@ -76,7 +75,7 @@ const seedData = () => {
           db.query(
             'INSERT INTO images SET ?',
             {
-              url: res.data.urls.small,
+              url: res.data.urls.regular,
               post_id: i + 1,
               created_at: faker.date.past(),
             },
