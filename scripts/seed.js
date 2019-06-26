@@ -4,12 +4,12 @@ const bcrypt = require('bcryptjs');
 const db = require('../db');
 require('dotenv').config();
 
-const numOfPostsAndImages = 2;
-const numberOfUserComments = 100;
-const numberOfAdminComments = 10;
+const numOfPostsAndImages = process.env.SEED_AMOUNT;
+const numberOfUserComments = process.env.SEED_AMOUNT * 5;
+const numberOfAdminComments = process.env.SEED_AMOUNT * 2;
 
 const numberOfAdmins = 1;
-const numberOfUsers = 10;
+const numberOfUsers = process.env.SEED_AMOUNT * 2;
 
 const imgApi = `${process.env.IMG_API}/?client_id=${process.env.IMG_API_KEY}`;
 console.log(imgApi);
