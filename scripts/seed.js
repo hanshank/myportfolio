@@ -12,6 +12,7 @@ const numberOfAdmins = 1;
 const numberOfUsers = 10;
 
 const imgApi = `${process.env.IMG_API}/?client_id=${process.env.IMG_API_KEY}`;
+console.log(imgApi);
 
 const seedData = () => {
   const randomInt = max => Math.floor(Math.random() * Math.floor(max) + 1);
@@ -71,6 +72,7 @@ const seedData = () => {
       axios
         .get(imgApi)
         .then(res => {
+          console.log(res.data.urls);
           db.query(
             'INSERT INTO images SET ?',
             {
