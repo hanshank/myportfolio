@@ -2,6 +2,7 @@ const axios = require('axios');
 const faker = require('faker');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
+require('dotenv').config();
 
 const numOfPostsAndImages = 2;
 const numberOfUserComments = 100;
@@ -124,11 +125,11 @@ const seedData = () => {
   // Open up a new mysql db connection
 
   // Running seed functions. You can edit the params to include desired amount of inserts
-  // createAdmins(numberOfAdmins);
-  // createUsers(numberOfUsers);
+  createAdmins(numberOfAdmins);
+  createUsers(numberOfUsers);
   createPostsAndImages(numOfPostsAndImages);
-  // createUserComments(numberOfUserComments);
-  // createAdminComments(numberOfAdminComments);
+  createUserComments(numberOfUserComments);
+  createAdminComments(numberOfAdminComments);
 
   // Closes current mysql db connection
 };
