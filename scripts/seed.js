@@ -53,19 +53,19 @@ const seedData = () => {
   const createPostsAndImages = amount => {
     for (let i = 0; i < amount; i++) {
       // Post query
-      // db.query(
-      //   'INSERT INTO posts SET ?',
-      //   {
-      //     title: faker.lorem.words(),
-      //     content: `<p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p>`,
-      //     admin_id: 1,
-      //     created_at: faker.date.past(),
-      //   },
-      //   function(err, rows) {
-      //     if (!err) console.log('The solution is: ', rows);
-      //     else console.log(err);
-      //   }
-      // );
+      db.query(
+        'INSERT INTO posts SET ?',
+        {
+          title: faker.lorem.words(),
+          content: `<p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p>`,
+          admin_id: 1,
+          created_at: faker.date.past(),
+        },
+        function(err, rows) {
+          if (!err) console.log('The solution is: ', rows);
+          else console.log(err);
+        }
+      );
 
       // Image query
       axios
