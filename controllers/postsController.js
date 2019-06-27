@@ -1,4 +1,3 @@
-const mysql = require('mysql');
 const db = require('../db');
 
 const create = (req, res) => {
@@ -16,26 +15,26 @@ const create = (req, res) => {
 
 const getAllPosts = (req, res, next) => {
   const q =
-    'SELECT p.title, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts p INNER JOIN images i on p.id = i.post_id';
+    'SELECT p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts p INNER JOIN images i on p.id = i.post_id';
   db.query(q, (err, results) => {
-    req.posts = results;
+    res.locals.posts = results;
     next();
   });
 };
 
-const getOnePost = (req, res) => {
-  console.log('I was hit');
-  const q = `SELECT p.title, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts p INNER JOIN images i on p.id = i.post_id WHERE p.id = ${
-    req.params.id
-  }`;
+const getPost = (req, res, next) => {
+  const q = `SELECT p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts AS p INNER JOIN images i on p.id = i.post_id WHERE p.slug IN ('${
+    req.params.slug
+  }')`;
   db.query(q, (err, results) => {
     if (err) throw err;
-    res.json(results);
+    res.locals.post = results;
+    next();
   });
 };
 
 module.exports = {
   getAllPosts,
-  getOnePost,
+  getPost,
   create,
 };

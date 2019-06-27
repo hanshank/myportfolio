@@ -8,19 +8,22 @@ html(lang='en')
     script(src='https://unpkg.com/axios/dist/axios.min.js')
     title Hans Martin Hanken | Home
   body
-    // <div id="homepage_container"></div>
+    block layoutClasses
     block header
-    header.header
+    header(class=`header ${headerClasses || ''}`)
       nav.navbar
-        a(href='/')
-          img.logo(src='/img/logo_strong.svg', alt='Square logo with the letters H and M inside.')
+        a(href='/' class="logo") HM
+          //- img.logo(src='/img/logo_strong.svg', alt='Square logo with the letters H and M inside.')
         .page-links
-          a(href='#work') WORK
-          a(href='#bio') BIO
-          a(href='#contact') CONTACT
+          a(href='/#work') WORK
+          a(href='/#bio') BIO
+          a(href='/#contact') CONTACT
           a(href='/blog') BLOG
+      
       block header content
+
     block page content
+
     footer.footer
       span © 2019 Hans Martin Hanken.
       .contact-icons

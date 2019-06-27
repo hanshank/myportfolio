@@ -2,12 +2,18 @@
 @import './grid.css';
 @import './variables.css';
 @import './brands.min.css';
- url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500|Roboto:100,300,400,500,700|Source+Sans+Pro:200,300,400,600,700&display=swap');
 
- 
+/* font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Raleway', sans-serif; */
+
 body {
   background-color: hsla(28, 67%, 99%, 1);
 }
+
+
 
 .img-fluid {
   width: 100%;
@@ -40,18 +46,26 @@ a, p, span, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
 }
 
-
-/* ============================== END FONTS ================================================= */
-
-
 /* ============================ NAV ====================================================== */
 
 .header {
   position: relative;
 }
 
+.index-header {
+  height: 85vh;
+}
+
 .logo {
- width: 80%; 
+ font-size: 28px;
+ text-shadow: 2px 2px 10px rgba(165, 165, 165, 0.438);
+ padding: 10px 7px;
+ border: 1px solid rgb(241, 241, 241);
+ border-radius: 5px;
+ text-decoration: none;
+ color: var(--black);
+ font-family: var(--header-text-font);
+ font-weight: 300;
 }
 
 .navbar {
@@ -72,39 +86,38 @@ padding: var(--navbar-padding);
   text-decoration: none;
   color: black;
   font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   margin-left: var(--navbar-item-spacing);
 }
 
 /* ============================== INTRO SECTION ================================================= */
 .intro-section {
+  position: relative;
+  height: 100%;
   display: flex;
-  transform: translateY(70%);
   justify-content: center;
-  align-items: center;
+  
 }
 
 .intro-message {
-  /* padding-bottom: 70px; */
+  text-align: center;
+  transform: translateY(20%);
 }
 
 .intro-headline {
-  font-size: 40px;
+  font-size: 43px;
   color: var(--black);
-  font-weight: 600;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-image: 
-    linear-gradient(
-      to right,
-      #000000cc 0, 
-      #00000015) 
-    30;
+  font-weight: 300;
+  text-shadow: 2px 2px 30px #15151523;
 }
 
 .intro-second-headline {
-  font-size: 21px;
+  font-size: 19px;
+  font-family: 'Raleway', sans-serif;
   color: var(--black);
-  font-weight: 400;
+  font-weight: 200;
+  text-shadow: 2px 2px 30px #15151523;
 }
 
 .intro-third-headline {
@@ -201,6 +214,7 @@ padding: var(--navbar-padding);
 
 .bio-text-heading {
   font-size: 21px;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -242,6 +256,11 @@ padding: var(--navbar-padding);
   border-radius: var(--box-border-radius);
 }
 
+.contact-form textarea::placeholder, .contact-form input::placeholder {
+  font-family: var(--body-text-font);
+  font-weight: 100;
+}
+
 .contact-form button {
   cursor: pointer;
   font-family: var(--body-text-font);
@@ -259,6 +278,7 @@ padding: var(--navbar-padding);
 
 .footer {
   padding: var(--navbar-padding);
+  font-family: var(--body-text-font);
   height: 100px;
   display: flex;
   justify-content: space-between;

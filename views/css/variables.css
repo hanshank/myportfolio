@@ -1,10 +1,11 @@
 :root {
-  --black: #1C1C1C;
+  --black: rgb(32, 32, 32);
   --site-side-padding: 75px; 
   --navbar-padding: 25px 0;
   --navbar-item-spacing: 30px;
   --box-border-radius: 3px;
+  --header-text-font: 'Open Sans', sans-serif;
   --body-text-font: 'Open Sans', sans-serif;
-  --body-text-color: #575757;
+  --body-text-color: rgb(48, 48, 48);
   --body-text-size: 15px;
 }

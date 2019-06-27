@@ -1,24 +1,21 @@
 const router = require('express').Router();
-const mysql = require('mysql');
-
-const connection = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-});
-
-router.get('/', (req, res) => {
-  res.render('index.pug');
-});
-router.post('/contact', (req, res) => {
-  console.log('You hit the right spot today!');
-  console.log(req.body);
-});
+const projectsController = require('../controllers/projectsController');
 
 router.use('/blog', require('./blog'));
 router.use('/posts', require('./posts'));
 router.use('/mailers', require('./mailers'));
+router.use('/projects', require('./projects'));
+
+router.get('/', projectsController.getAllProjects, (req, res) => {
+  console.log('Hey there.......');
+  const { projects } = res.locals;
+  res.render('index.pug', { projects });
+});
+
+router.post('/contact', (req, res) => {
+  console.log('You hit the right spot today!');
+  console.log(req.body);
+});
 
 router.all('*', (req, res) => {
   res.render('404.pug');

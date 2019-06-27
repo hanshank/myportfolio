@@ -3,17 +3,18 @@ const faker = require('faker');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
 require('dotenv').config();
+const helpers = require('../helpers/misc');
 
 const numOfPostsAndImages = process.env.SEED_AMOUNT;
-const numberOfUserComments = process.env.SEED_AMOUNT * 5;
-const numberOfAdminComments = process.env.SEED_AMOUNT * 2;
+const numberOfUserComments = numOfPostsAndImages * 5;
+const numberOfAdminComments = numOfPostsAndImages * 2;
 
 const numberOfAdmins = 1;
-const numberOfUsers = process.env.SEED_AMOUNT * 2;
+const numberOfUsers = numOfPostsAndImages * 2;
 
 const imgApi = `${process.env.IMG_API}/?client_id=${process.env.IMG_API_KEY}`;
 
-const seedData = () => {
+const seedData = callback => {
   const randomInt = max => Math.floor(Math.random() * Math.floor(max) + 1);
 
   const createAdmins = amount => {
@@ -53,10 +54,13 @@ const seedData = () => {
   const createPostsAndImages = amount => {
     for (let i = 0; i < amount; i++) {
       // Post query
+      const postTitle = faker.lorem.words();
+
       db.query(
         'INSERT INTO posts SET ?',
         {
-          title: faker.lorem.words(),
+          title: postTitle,
+          slug: helpers.createSlug(postTitle),
           content: `<p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p><p>${faker.lorem.text()}</p>`,
           admin_id: 1,
           created_at: faker.date.past(),
@@ -125,14 +129,130 @@ const seedData = () => {
 
   // Open up a new mysql db connection
 
-  // Running seed functions. You can edit the params to include desired amount of inserts
-  createAdmins(numberOfAdmins);
-  createUsers(numberOfUsers);
-  createPostsAndImages(numOfPostsAndImages);
-  createUserComments(numberOfUserComments);
-  createAdminComments(numberOfAdminComments);
+  const projectsQuery = 'INSERT INTO projects (name, slug, short_description, description) VALUES ?';
+  const projects = [
+    ['Yamovie', helpers.createSlug('Yamovie'), 'FULL STACK NODE/REACT + DESIGN', faker.lorem.paragraphs()],
+    ['&SÜPA', helpers.createSlug('SÜPA'), 'FULL STACK NODE/GATSBY + DESIGN', faker.lorem.paragraphs()],
+    ['Muli Clothing', helpers.createSlug('Muli Clothing'), 'DESIGN + CUSTOMIZATION', faker.lorem.paragraphs()],
+    ['Rails Stack', helpers.createSlug('Rails Stack'), 'FULL STACK RAILS/REACT + DESIGN', faker.lorem.paragraphs()],
+  ];
 
-  // Closes current mysql db connection
+  function createProjects() {
+    db.query(projectsQuery, [projects], (err, rows) => {
+      if (!err) console.log('The solution is: ', rows);
+      else console.log(err);
+    });
+  }
+
+  const tagsQuery = 'INSERT INTO tags (name) VALUES ?';
+  const tags = [['Design'], ['Full Stack'], ['Website'], ['Front End']];
+
+  function createTags() {
+    db.query(tagsQuery, [tags], (err, rows) => {
+      if (!err) console.log('The solution is: ', rows);
+      else console.log(err);
+    });
+  }
+
+  const toolsQuery = 'INSERT INTO tools (name) VALUES ?';
+  const tools = [
+    ['Wordpress'],
+    ['Gatsby'],
+    ['Node'],
+    ['React'],
+    ['Express'],
+    ['GraphQL'],
+    ['HTML'],
+    ['CSS'],
+    ['SASS'],
+    ['JavaScript'],
+    ['Ruby'],
+    ['Ruby On Rails'],
+  ];
+
+  function createTools() {
+    db.query(toolsQuery, [tools], (err, rows) => {
+      if (!err) console.log('The solution is: ', rows);
+      else console.log(err);
+    });
+  }
+
+  const projectTagsQuery = 'INSERT INTO project_tags (tag_id, project_id) VALUES ?';
+  const projectTags = [
+    [1, 1],
+    [2, 1],
+    [3, 1],
+    [4, 1],
+    [1, 2],
+    [2, 2],
+    [3, 2],
+    [4, 2],
+    [1, 3],
+    [3, 3],
+    [4, 3],
+    [1, 4],
+    [2, 4],
+    [3, 4],
+    [4, 4],
+  ];
+
+  function createProjectTags() {
+    db.query(projectTagsQuery, [projectTags], (err, rows) => {
+      if (!err) console.log('The solution is: ', rows);
+      else console.log(err);
+    });
+  }
+
+  const projectToolsQuery = 'INSERT INTO project_tools (tool_id, project_id) VALUES ?';
+  const projectTools = [
+    [3, 1],
+    [4, 1],
+    [5, 1],
+    [7, 1],
+    [8, 1],
+    [10, 1],
+    [2, 2],
+    [3, 2],
+    [4, 2],
+    [5, 2],
+    [6, 2],
+    [7, 2],
+    [8, 2],
+    [10, 2],
+    [1, 3],
+    [6, 3],
+    [7, 3],
+    [7, 4],
+    [8, 4],
+    [9, 4],
+    [10, 4],
+    [11, 4],
+    [12, 4],
+  ];
+
+  function createProjectTools() {
+    db.query(projectToolsQuery, [projectTools], (err, rows) => {
+      if (!err) console.log('The solution is: ', rows);
+      else console.log(err);
+    });
+  }
+
+  // Running seed functions. You can edit the params to include desired amount of inserts
+  // createAdmins(numberOfAdmins);
+  // createUsers(numberOfUsers);
+  // createPostsAndImages(numOfPostsAndImages);
+  // createUserComments(numberOfUserComments);
+  // createAdminComments(numberOfAdminComments);
+
+  // More specific queries
+  createProjects();
+  createTags();
+  createTools();
+  createProjectTags();
+  createProjectTools();
+
+  // callback('Seeding completed');
 };
 
+// Run seed function and end script process when finished
 seedData();

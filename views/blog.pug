@@ -3,4 +3,5 @@ extends layout
 block page content
   div.blog-posts-grid
     each post in posts
+      a(href=`/blog/${post.slug}`)
         img(src=`${post.image_url}`, alt="").blog-post
