@@ -1,6 +1,9 @@
 extends layout
 
 block page content
+  div.post-container
+  - imageUrl = 'https://images.unsplash.com/photo-1559807715-d9dd67798420?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9';
   h1 Post coming here
+  img(src=`${imageUrl}` width="500px" height="auto")
   each p in post
     h1 #{p.title}

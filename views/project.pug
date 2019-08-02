@@ -1,5 +1,18 @@
 extends layout
-
 block page content
+  - imageUrl = 'https://images.unsplash.com/photo-1559807715-d9dd67798420?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9';
   each p in project
-    h1 #{p.name}
+    div.project-study
+      div.project-study-description
+        h1.title #{p.name}
+        p #{p.description}
+        p #{p.description}
+        button Live Site
+      div.project-study-sidebar
+        img(src=`${imageUrl}`, alt="" class='project-study-img')
+        div.gallery-section
+          p project gallery coming here
+        div.tools-section
+          h2 Tools Used
+          div
+            p input tools here.

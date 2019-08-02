@@ -33,12 +33,10 @@ const getAllProjects = (req, res, next) => {
 };
 
 const getProject = (req, res, next) => {
-  console.log('I am hit..... Help');
   const q = `SELECT name, short_description, slug, description FROM projects WHERE slug IN ('${req.params.slug}')`;
   db.query(q, (err, results) => {
     if (err) console.log(err);
     res.locals.project = results;
-    console.log(res.locals.project);
     next();
   });
 };

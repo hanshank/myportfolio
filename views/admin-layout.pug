@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='/css/main.css')
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
+    title Hans Martin Hanken | Admin
+  body
+    block layoutClasses
+    block header
+    header(class=`header ${headerClasses || ''}`)
+      nav.navbar
+        a(href='/' class="logo") HM
+          //- img.logo(src='/img/logo_strong.svg', alt='Square logo with the letters H and M inside.')
+        .page-links
+          a(href='/#work') WORK
+          a(href='/#bio') BIO
+          a(href='/#contact') CONTACT
+          a(href='/blog') BLOG
+      
+      block header content
+
+    block page content
+
+    footer.footer
+      span © 2019 Hans Martin Hanken.
+      .contact-icons
+        a(href='https://linkedin.com/in/hans-martin-hanken/')
+          i.icon
+            img(src='/img/linkedin-in.svg')
+        a(href='mailto:hansmhank@gmail.com')
+          i.icon
+            img(src='/img/envelope.svg')
+    script(src='https://unpkg.com/axios/dist/axios.min.js')
+    script(src='./components/contact.js')

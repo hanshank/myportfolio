@@ -1,0 +1,8 @@
+extends admin-layout
+
+block page content
+  div
+    each post in posts
+      div 
+        h1 #{post.title}
+        img(src=`${post.image_url}`)
