@@ -2,6 +2,7 @@ const router = require('express').Router();
 const adminController = require('../../controllers/adminController');
 
 router.use('/posts', require('./posts'));
+router.use('/projects', require('./projects'));
 
 router.get('/', adminController.isAuthenticated, (req, res) => {
   res.render('admin-index.pug');

@@ -1,0 +1,14 @@
+extends admin-layout
+
+block page content
+  div.new-post-form-container
+    form.post-form(action="/admin/posts" method="POST" enctype="multipart/form-data" class="new-post-form")
+      label() Title
+      input(type="text" name="title" class="form-field" required)
+      input(id="form-text" name="content" type="hidden")
+      trix-editor(input="form-text")
+      label(for="post-input") What is on your mind right now?
+      input(type="file" name="image" required)
+      label.published-check Publish?
+        input(type="checkbox" name="published")
+      button.new-post-submit(type="submit" value="submit" class="form-field") Save

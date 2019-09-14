@@ -7,7 +7,7 @@ router.use('/posts', require('./posts'));
 router.use('/mailers', require('./mailers'));
 router.use('/projects', require('./projects'));
 
-router.get('/', projectsController.getAllProjects, (req, res) => {
+router.get('/', projectsController.getFourNewest, (req, res) => {
   const { projects } = res.locals;
   res.render('index.pug', { projects });
 });

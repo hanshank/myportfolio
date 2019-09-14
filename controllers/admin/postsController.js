@@ -9,7 +9,6 @@ const { createSlug } = require('../../helpers/misc');
  */
 function createPost(req, res) {
   const { title, content } = req.body;
-  console.log(req.file);
   const post = {
     title,
     admin_id: 1,
@@ -36,6 +35,11 @@ function createPost(req, res) {
   });
 }
 
+const updatePost = (req, res) => {
+  console.log(req.body);
+};
+
 module.exports = {
   createPost,
+  updatePost,
 };

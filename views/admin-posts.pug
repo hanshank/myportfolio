@@ -1,8 +1,16 @@
 extends admin-layout
 
 block page content
+  a(href="/admin/posts/new") + New Blog Post
+
   div
-    each post in posts
-      div 
-        h1 #{post.title}
-        img(src=`${post.image_url}`)
+    table
+      tr
+        th Title
+        th Actions
+      each post in posts
+        tr
+          td 
+            h1 #{post.title}
+          td
+            a.edit-button(href=`/admin/posts/${post.slug}/edit`) edit

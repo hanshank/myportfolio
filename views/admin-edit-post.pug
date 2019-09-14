@@ -1,0 +1,6 @@
+extends admin-layout
+include mixins/post-form.pug
+
+block page content
+  each p in post
+    +post-form(p, 'PATCH', `/admin/posts/${p.slug}`)

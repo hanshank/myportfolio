@@ -1,0 +1,24 @@
+.post-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.new-post-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-post-form {
+  width: 60%;
+}
+
+.new-post-form > * {
+  margin-bottom: 5px;
+}
+
+.form-field {
+  padding: 10px;
+  font-size: 16px;
+}

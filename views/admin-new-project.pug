@@ -1,0 +1,7 @@
+extends admin-layout
+
+block page content
+  form.post-form(action="/admin/projects" method="POST" enctype="multipart/form-data")
+    label Project Title
+    input(type="text")
+    label

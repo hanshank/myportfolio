@@ -15,7 +15,7 @@ block page content
           div
             a(href=`/projects/${project.slug}`)
               div.project-img-container
-                img.img-fluid.project-img(src='./img/yamovie.jpg')
+                img.img-fluid.project-img(src=`${project.url}`)
             h3.project-title #{project.name} | #{project.short_description}
         //- div
         //-   div.project-img-container

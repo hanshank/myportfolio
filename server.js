@@ -11,6 +11,10 @@ const router = require('./routes/index');
 const app = express();
 
 app.use(bodyParser.json());
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(
   session({
     secret: 'work hard',

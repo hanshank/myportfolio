@@ -9,13 +9,13 @@ const create = (req, res) => {
   const q = `INSERT INTO posts SET ?`;
   db.query(q, post, (err, results) => {
     if (err) throw err;
-    res.json({ success: 'The post was succesfully created', post: results });
   });
+  res.redirect('/admin/posts');
 };
 
 const getAllPosts = (req, res, next) => {
   const q =
-    'SELECT p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts p INNER JOIN images i on p.id = i.post_id';
+    'SELECT p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts p INNER JOIN images i on p.id = i.post_id ORDER BY p.created_at DESC';
   db.query(q, (err, results) => {
     res.locals.posts = results;
     next();
@@ -23,6 +23,7 @@ const getAllPosts = (req, res, next) => {
 };
 
 const getPost = (req, res, next) => {
+  console.log(req.params);
   const q = `SELECT p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts AS p INNER JOIN images i on p.id = i.post_id WHERE p.slug IN ('${
     req.params.slug
   }')`;

@@ -1,0 +1,14 @@
+//- Declaration
+mixin post-form(post, method, action)
+    div.new-post-form-container
+      form.post-form(action=`${action}` method="POST" enctype="multipart/form-data" class="new-post-form")
+        input(type="hidden" value="patch")
+        label() Title
+        input(type="text" name="title" class="form-field" value=`${post.title}` required)
+        input(id="form-text" name="content" type="hidden" value=`${post.content}`)
+        trix-editor(input="form-text")
+        label(for="post-input") What is on your mind right now?
+        input(type="file" name="image")
+        label.published-check Publish?
+          input(type="checkbox" name="published" checked=`${post.published || false}` )
+        button.new-post-submit(type="submit" value="submit" class="form-field") Save

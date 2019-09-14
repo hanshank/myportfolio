@@ -299,6 +299,22 @@ padding: var(--navbar-padding);
   margin-bottom: 20px;
 }
 
+/* =============================== INDIVIDUAL POSTS ============================= */
+
+.post-container {
+  display: flex;
+  justify-content: center;
+}
+
+.post-section {
+  width: 65%;
+}
+
+.post-content {
+  font-size: 20px;
+}
+
+
 /* ============================== PROJECT PAGE ================================================= */
 
 .project-study .title {

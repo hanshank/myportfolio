@@ -1,4 +1,5 @@
 const db = require('../db');
+const { getAll } = require('../models/project.model');
 
 const createSlug = name => {
   let slug = name
@@ -24,10 +25,17 @@ const create = (req, res) => {
 };
 
 const getAllProjects = (req, res, next) => {
-  const q = 'SELECT name, short_description, slug, description FROM projects';
-  db.query(q, (err, results) => {
-    if (err) console.log(err);
+  getAll(projects => {
+    res.locals.projects = projects;
+    res.render('');
+  });
+};
+
+const getFourNewest = (req, res, next) => {
+  db.query('SELECT * FROM projects p INNER JOIN images i on p.id = i.project_id LIMIT 4', (error, results) => {
+    if (error) throw error;
     res.locals.projects = results;
+    console.log(results);
     next();
   });
 };
@@ -43,6 +51,7 @@ const getProject = (req, res, next) => {
 
 module.exports = {
   getAllProjects,
+  getFourNewest,
   getProject,
   create,
 };
