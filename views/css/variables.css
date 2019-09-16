@@ -1,5 +1,7 @@
 :root {
   --black: rgb(32, 32, 32);
+  --red: rgb(206, 28, 28);
+  --white: rgb(249, 249, 249);
   --site-side-padding: 75px; 
   --navbar-padding: 25px 0;
   --navbar-item-spacing: 30px;

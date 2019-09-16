@@ -1,17 +1,7 @@
 const router = require('express').Router();
-const multer = require('multer');
 const { createPost, updatePost } = require('../../controllers/admin/postsController');
 const { getAllPosts, getPost } = require('../../controllers/postsController');
-
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, './views/uploads/images/');
-  },
-  filename(req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-const upload = multer({ storage });
+const { upload, passAlong } = require('../../middleware/image-uploads');
 
 router.get('/', getAllPosts, (req, res, next) => {
   const { posts } = res.locals;
@@ -31,5 +21,7 @@ router.patch('/:slug', updatePost, (req, res) => {
 });
 
 router.post('/', upload.single('image'), createPost);
+
+router.post('/:slug', passAlong.single('image'), updatePost);
 
 module.exports = router;

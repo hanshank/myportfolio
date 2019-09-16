@@ -22,3 +22,28 @@
   padding: 10px;
   font-size: 16px;
 }
+
+.submit-button {
+  background: var(--red);
+  color: var(--white);
+}
+
+.upload-button {
+  text-align: center;
+  padding: 5px;
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ========== LOGIN FORM =========== */
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}

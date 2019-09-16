@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const projectsController = require('../controllers/projectsController');
 
-router.use('/admin', require('./admin/index'));
+// router.use('/admin', require('./admin/index'));
 router.use('/blog', require('./blog'));
 router.use('/posts', require('./posts'));
 router.use('/mailers', require('./mailers'));

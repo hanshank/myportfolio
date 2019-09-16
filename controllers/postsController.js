@@ -24,7 +24,7 @@ const getAllPosts = (req, res, next) => {
 
 const getPost = (req, res, next) => {
   console.log(req.params);
-  const q = `SELECT p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts AS p INNER JOIN images i on p.id = i.post_id WHERE p.slug IN ('${
+  const q = `SELECT p.id, p.title, p.slug, p.content, p.created_at, p.updated_at, i.url AS image_url FROM posts AS p INNER JOIN images i on p.id = i.post_id WHERE p.slug IN ('${
     req.params.slug
   }')`;
   db.query(q, (err, results) => {

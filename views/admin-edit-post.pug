@@ -1,6 +1,16 @@
 extends admin-layout
+append head
+    script(src="./vanilla.js" defer)
+
 include mixins/post-form.pug
 
 block page content
   each p in post
     +post-form(p, 'PATCH', `/admin/posts/${p.slug}`)
+    script.
+      if ("#{p.image_url}") {
+        const uploadPreview = document.getElementById('upload-preview')
+        const uploadBtn = 
+        console.log(uploadPreview)
+        uploadPreview.src="#{p.image_url}"
+      }

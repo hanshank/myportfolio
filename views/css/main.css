@@ -13,8 +13,6 @@ body {
   background-color: hsla(28, 67%, 99%, 1);
 }
 
-
-
 .img-fluid {
   width: 100%;
   height: auto;
@@ -297,6 +295,15 @@ padding: var(--navbar-padding);
 
 .blog-post {
   margin-bottom: 20px;
+}
+
+.post-preview-link {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.post-preview-title {
+  text-decoration: none;
 }
 
 /* =============================== INDIVIDUAL POSTS ============================= */

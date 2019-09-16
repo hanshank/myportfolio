@@ -2,13 +2,15 @@
 mixin post-form(post, method, action)
     div.new-post-form-container
       form.post-form(action=`${action}` method="POST" enctype="multipart/form-data" class="new-post-form")
-        input(type="hidden" value="patch")
+        input(type="hidden" name="id" value=`${post.id}`)
         label() Title
         input(type="text" name="title" class="form-field" value=`${post.title}` required)
+        label(for="post-input") What is on your mind right now?
         input(id="form-text" name="content" type="hidden" value=`${post.content}`)
         trix-editor(input="form-text")
-        label(for="post-input") What is on your mind right now?
-        input(type="file" name="image")
+        label(for="upload-file" class="upload-button" id="upload-button") Select Image
+        input(type="file" name="image" value=`${post.image_url}` id="upload-file" style="visibility:hidden;position:absolute;" )
+        img(id="upload-preview")
         label.published-check Publish?
           input(type="checkbox" name="published" checked=`${post.published || false}` )
-        button.new-post-submit(type="submit" value="submit" class="form-field") Save
+        button.new-post-submit(type="submit" value="submit" class="form-field submit-button") Save

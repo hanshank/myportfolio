@@ -23,7 +23,7 @@ function createPost(req, res) {
         { url: `uploads/images/${req.file.filename.split(' ').join('-')}`, post_id: results.insertId },
         (err, result) => {
           if (!err) {
-            res.status(201).json('Succesfully created');
+            res.redirect('/admin/posts');
           } else {
             res.status(400).json('Invalid syntax');
           }
@@ -36,7 +36,23 @@ function createPost(req, res) {
 }
 
 const updatePost = (req, res) => {
-  console.log(req.body);
+  const postImage = req.file;
+  const { originalname, buffer, contentType } = postImage;
+  const { slug } = req.params;
+  const { id, title, content, published } = req.body;
+
+  const postQuery = `UPDATE posts SET ? WHERE slug = ?`;
+  const postData = [{ title, content, published }, slug];
+
+  // Update the post
+  db.query(postQuery, postData);
+
+  const imageQuery = `UPDATE posts SET ? WHERE post_id = ?`;
+  const imageData = [{ url: newImgUrl }, id];
+  // Update the assosciated image
+  if (postImage) {
+    db.query(imageQuery, imageData);
+  }
 };
 
 module.exports = {
