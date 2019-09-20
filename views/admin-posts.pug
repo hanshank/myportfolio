@@ -1,7 +1,11 @@
 extends admin-layout
 
 block page content
-  a(href="/admin/posts/new") + New Blog Post
+  span
+    a(href="/admin/posts/new") + New Blog Post &nbsp
+  span
+    a(href="/admin/projects/new") + New Project
+  hr
 
   div
     table

@@ -3,7 +3,7 @@ const faker = require('faker');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
 require('dotenv').config();
-const helpers = require('../helpers/misc');
+const helpers = require('../utils/helpers/misc');
 
 const numOfPostsAndImages = process.env.SEED_AMOUNT;
 const numberOfUserComments = numOfPostsAndImages * 5;

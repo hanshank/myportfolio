@@ -3,12 +3,17 @@ extends admin-layout
 block page content
   div.new-post-form-container
     form.post-form(action="/admin/posts" method="POST" enctype="multipart/form-data" class="new-post-form")
-      label() Title
+      label Title
       input(type="text" name="title" class="form-field" required)
+      label Description
+      input(type="text" name="description" class="form-field" required)
+      label Content
       input(id="form-text" name="content" type="hidden")
       trix-editor(input="form-text")
-      label(for="post-input") What is on your mind right now?
+      label Image
       input(type="file" name="image" required)
+      label Image Alt text
+      input(type="text" name="altText")
       label.published-check Publish?
         input(type="checkbox" name="published")
       button.new-post-submit(type="submit" value="submit" class="form-field") Save

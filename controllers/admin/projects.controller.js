@@ -1,14 +1,39 @@
-import { create } from '../../models/project.model';
+const { Project, Image } = require('../../models');
 
-const createOne = (req, res, next) => {
+const createProject = async (req, res, next) => {
   try {
-    create(req.params);
-    res.render('admin-index.pug');
-  } catch (err) {
-    console.error(err);
+    const { title, description, content, altText } = req.body;
+    await await Project.create(
+      {
+        title,
+        description,
+        content,
+        Image: {
+          url: req.file.path,
+          alt_text: altText,
+        },
+      },
+      {
+        include: Image,
+        individualHooks: true,
+      }
+    );
+    next();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const deleteProject = async (req, res, next) => {
+  try {
+    await Project.destroy({ where: { slug: req.params.slug } });
+    next();
+  } catch (error) {
+    console.error(error);
   }
 };
 
 module.exports = {
-  createOne,
+  createProject,
+  deleteProject,
 };

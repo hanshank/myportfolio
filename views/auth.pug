@@ -1,8 +1,13 @@
-form(action="/admin/authenticate" method="post" class="login-form")
-  div.form-group
-    label Username
-    input(type="text" name="username" class="form-field")
-  div.form-group
-    label Password  
-    input(type="password" name="password" class="form=field")
-  button(type="submit" class="login-button") Login
+extends admin-layout
+
+block page content
+  div.login-container
+    form(action="/authenticate" method="post" class="login-form")
+      h1 Log in
+      div.form-group
+        label Username
+        input(type="text" name="username" class="form-field")
+      div.form-group
+        label Password  
+        input(type="password" name="password" class="form=field")
+      button(type="submit" class="login-button") Login

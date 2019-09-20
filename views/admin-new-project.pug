@@ -1,7 +1,17 @@
 extends admin-layout
 
 block page content
-  form.post-form(action="/admin/projects" method="POST" enctype="multipart/form-data")
-    label Project Title
-    input(type="text")
-    label
+  div.new-post-form-container
+    form.post-form(action="/admin/projects" method="POST" enctype="multipart/form-data" class="new-post-form")
+      label Title
+      input(type="text" name="title" class="form-field" required)
+      label Description
+      input(type="text" name="description" class="form-field" required)
+      label Content
+      input(id="form-text" name="content" type="hidden")
+      trix-editor(input="form-text")
+      label Image
+      input(type="file" name="image" required)
+      label Image alt text
+      input(type="text" name="altText" required)
+      button.new-post-submit(type="submit" value="submit" class="form-field") Save

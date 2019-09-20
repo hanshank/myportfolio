@@ -37,13 +37,28 @@
 
 /* ========== LOGIN FORM =========== */
 
-.login-form {
+.login-container {
+  height: 60vh;
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+}
+
+.login-form {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+}
+
+.admin-tables {
+  display: flex;
+}
+
+.admin-table {
+  width: 50%;
 }

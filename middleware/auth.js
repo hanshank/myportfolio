@@ -1,12 +1,45 @@
-const db = require('../db');
+const Cookies = require('cookies');
+const { Session } = require('../models/index');
 
-const isAuthenticated = (req, res, next) => {
-  db.query('SELECT id FROM sessions WHERE id = ?', [req.cookies.sessionId || '24124'], (error, results) => {
-    if (results[0]) {
-      return next();
+const adminIsLoggedIn = async (req, res) => {
+  try {
+    const cookies = new Cookies(req, res);
+    const cookie = cookies.get('token') || '231';
+    let loggedIn = false;
+    const session = await Session.findByPk(cookie, { raw: true });
+    if (session) {
+      if (session.id === cookie) {
+        // Authenticate if session is not expired
+        if (session.expires_at > Date.now()) {
+          loggedIn = true;
+        }
+      }
     }
-    res.redirect('/admin/login');
-  });
+    return loggedIn;
+  } catch (error) {
+    throw Error(error);
+  }
+};
+
+const isAuthenticated = async (req, res, next) => {
+  try {
+    const cookies = new Cookies(req, res);
+    const token = cookies.get('token') || '231';
+    const session = await Session.findByPk(token, { raw: true });
+    if (session) {
+      if (session.id === token) {
+        // Authenticate if session is not expired
+        if (session.expires_at > Date.now()) {
+          return next();
+        }
+        // Delete expired sessios
+        Session.destroy({ where: { id: session.id } });
+      }
+    }
+    res.redirect('/login');
+  } catch (error) {
+    throw Error(error);
+  }
 };
 
 const showLogin = (req, res) => {
@@ -14,6 +47,7 @@ const showLogin = (req, res) => {
 };
 
 module.exports = {
+  adminIsLoggedIn,
   isAuthenticated,
   showLogin,
 };

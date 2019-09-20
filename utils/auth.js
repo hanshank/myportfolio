@@ -1,3 +1,1 @@
-module.exports = {
-  isAuthenticated,
-};
+module.exports = {};

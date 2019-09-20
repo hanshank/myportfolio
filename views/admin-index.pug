@@ -1,1 +1,37 @@
-extends admin layout
+extends admin-layout
+
+block head
+  script(src="./js/admin.js" type="text/javascript" defer)
+
+
+block page content
+  div.admin-tables
+    div.admin-table
+      span
+        a(href="/admin/posts/new") + New Blog Post &nbsp
+      table
+        tr
+          th Title
+          th Actions
+        each post in posts
+          tr
+            td 
+              h1 #{post.title}
+            td
+              a.edit-button(href=`/admin/posts/${post.slug}/edit`) edit
+    div.admin-table
+      span
+        a(href="/admin/projects/new") + New Project
+      table
+        tr
+          th Name
+          th Actions
+        each project in projects
+          tr
+            td 
+              h1 #{project.title}
+            td
+              span
+                a.edit-button(href=`/admin/projects/${project.slug}/edit`) edit
+                button.delete-button(type='button' onclick=`deleteProject(/admin/projects/${project.slug})` ) Delete
+
